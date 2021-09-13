@@ -27,3 +27,7 @@ This project targets Java 9 and does not require any library at runtime.
 Currently, there is only one configuration entry:
 
 `mainJarFileName`: Determines the bootstrap jar file name. Default: application.jar
+
+### TODO
+* Use GitHub workflows
+* Publish future releases to GitHub packages
