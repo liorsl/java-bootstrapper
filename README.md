@@ -9,21 +9,21 @@ For now, this piece of code acts as a shim, however it may be expanded in the fu
 
 This project targets Java 9 and does not require any library at runtime.
 
-###Requirements:
+### Requirements:
 1. Java 9 or newer
 2. That's pretty much it
 
-###How To Build
+### How To Build
 1. Clone this project
 2. Run `gradle clean jar`
 3. View the results in the directory `build/libs`
 
-###How To Use
+### How To Use
 1. Place this project's jar in a directory (preferably a new one)
 2. Place your application's jar file and name it in accordance with the configuration
 3. If needed, create the `libraries` and drop your library jar files in there. 
 
-####Configuration 
+#### Configuration 
 Currently, there is only one configuration entry:
 
 `mainJarFileName`: Determines the bootstrap jar file name. Default: application.jar
