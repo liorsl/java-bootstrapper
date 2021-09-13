@@ -1,0 +1,48 @@
+plugins {
+    id 'java-library'
+
+}
+
+group 'dev.voigon'
+version '1.0'
+
+repositories {
+    mavenCentral()
+
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+}
+
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(9))
+    }
+}
+
+task createProperties(dependsOn: processResources) {
+    doLast {
+        var fileWriter = new FileWriter(new File("$buildDir/resources/main/version.properties"))
+        Properties properties = new Properties();
+        properties.put('version', project.getVersion().toString());
+        properties.store(fileWriter, null)
+
+    }
+}
+
+classes {
+    dependsOn createProperties
+}
+
+
+jar {
+    manifest {
+        attributes (
+                'Main-Class': 'dev.voigon.bootstrapper.Main',
+                'Main-Module': 'dev.voigon.bootstrapper'
+        )
+    }
+}
